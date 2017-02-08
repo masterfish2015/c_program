@@ -1,0 +1,22 @@
+{
+  "name": "c_program_teaching",
+  "version": "1.0.0",
+  "description": "how to teach yourself c program language",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/masterfish2015/c_program.git"
+  },
+  "keywords": [
+    "c_program"
+  ],
+  "author": "ldc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/masterfish2015/c_program/issues"
+  },
+  "homepage": "https://github.com/masterfish2015/c_program#readme"
+}
