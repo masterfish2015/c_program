@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/masterfish2015/c_program/issues"
   },
-  "homepage": "https://github.com/masterfish2015/c_program#readme"
+  "homepage": "https://github.com/masterfish2015/c_program#readme",
+  "dependencies": {
+    "reveal": "0.0.4"
+  }
 }
