@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>C Program Language</title>
+    <title>C Program Language-chapter-1</title>
 
     <link rel="stylesheet" href="../libs/reveal.js-3.4.1/css/reveal.css">
     <link rel="stylesheet" href="../libs/reveal.js-3.4.1/css/theme/black.css">
@@ -26,8 +26,76 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        <section>Slide 1</section>
-        <section>Slide 2</section>
+        <section>
+          <h2>第一章 程序设计和C语言</h2>
+        </section>
+        <section>
+          <h3>1.1 什么是计算机程序</h3>
+          <section>
+            <p>程序：<q>一组计算机能识别和执行的指令</q></p>
+          </section>
+        </section>
+        <section>
+          <h3>1.2 什么是计算机语言</h3>
+          <section>
+            <p class="fragment ">计算机能直接识别和接受的二进制代码称为<span class="fragment highlight-red">机器指令（machine instruction）</span></p>
+            <p class="fragment ">机器指令的集合称为<span class="fragment highlight-blue">机器语言（machine language）</span></p>
+            <p class="fragment">机器语言的优缺点：</p>
+            <ul>
+              <li class="fragment">运行速度快，能充分发挥机器的性能</li>
+              <li class="fragment">难学，难写，难记，难检查和修改</li>
+              <li class="fragment">不同机器的指令不同</li>
+            </ul>
+          </section>
+          <section>
+            <p class="fragment "><span class="fragment highlight-red">符号语言（symbolic language）</span>: 用一些英文字母（单词）和数字来表示一个指令。</p>
+            <p class="fragment ">计算机不能直接识别符号语言，必须经过<span class="fragment highlight-red">编译器（compiler）</span>编译（compile）为机器语言指令，计算机才能识别和运行。</p>
+            <p class="fragment ">因此，符号语言又称为<span class="fragment highlight-green">汇编语言（assembler language）</span>。</p>
+            <pre class="fragment ">
+              <code class="hljs" data-trim contenteditable>
+                  ADD A, B (将A寄存器中的数和B寄存器中的数相加，结果放回A中)
+              </code>
+            </pre>
+          </section>
+          <section>
+            <p class="fragment">汇编语言的优缺点：</p>
+            <ul>
+              <li class="fragment">基本上和机器语言一一对应，所以依然运行速度快，能充分发挥机器的性能</li>
+              <li class="fragment">比机器语言指令稍好记一点，但不好移植，不同机器不同指令</li>
+              <li class="fragment">一些复杂算法不好实现，不适合编写大型的程序</li>
+            </ul>
+          </section>
+          <section>
+            <p class="fragment "><span class="fragment highlight-red">高级语言（high level language）</span>: 用人们习惯的自然语言和数学语言，一般不依赖具体的机器。</p>
+            <p class="fragment ">计算机不能直接识别高级语言，必须经过<span class="fragment highlight-red">编译器（compiler）</span>编译（compile）为机器语言指令，计算机才能识别和运行。</p>
+            <p class="fragment ">有时，编译好的机器语言代码还需要<span class="fragment highlight-green">链接（link）</span>其他的机器语言代码，组成最终的机器语言代码进行运行。</p>
+          </section>
+          <section>
+            <pre class="fragment ">
+              <code class="c" data-trim contenteditable>
+                  float angle = 30, sin_value; 
+                  sin_value = sin(angle * 3.14159 / 180.0 );
+                  printf("sin(%f) = %f \n", angle, sin_value) ;
+              </code>
+            </pre>
+          </section>
+          <section>
+            <p class="fragment">高级语言的优缺点：</p>
+            <ul>
+              <li class="fragment">不同机器上可以有不同的编译器编译为各自的机器语言指令，可移植性较好</li>
+              <li class="fragment">可以一条语句编译为多条指令，编程效率高，也可以实现复杂算法和大型程序的组织</li>
+              <li class="fragment">由于不是一一对应机器语言指令，编译不好的程序可能运行效率比较低</li>
+            </ul>
+          </section>
+          <section>
+            <p>高级语言的种类</p>
+            <ul>
+              <li class="fragment">静态（编译）语言：在运行前先经过编译和链接转换为机器语言程序，如C, C++等</li>
+              <li class="fragment">动态（编译）语言：在运行的时候边编译为机器语言指令边运行，也称为脚本语言， 如 javascript, python, ruby等</li>
+              <li class="fragment">中间（编译）语言：在运行前先经过编译和链接转换为中间语言程序（字节码），在运行的时候才编译为机器语言运行，如java, C#等</li>
+            </ul>
+          </section>
+        </section>
       </div>
     </div>
 
