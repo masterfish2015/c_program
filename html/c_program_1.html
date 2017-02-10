@@ -4,21 +4,18 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
     <title>C Program Language-chapter-1</title>
-
     <link rel="stylesheet" href="../libs/reveal.js-3.4.1/css/reveal.css">
     <link rel="stylesheet" href="../libs/reveal.js-3.4.1/css/theme/black.css">
-
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="../libs/reveal.js-3.4.1/lib/css/zenburn.css">
-
     <!-- Printing and PDF exports -->
     <script>
       var link = document.createElement('link');
       link.rel = 'stylesheet';
       link.type = 'text/css';
-      link.href = window.location.search.match(/print-pdf/gi) ? '../libs/reveal.js-3.4.1/css/print/pdf.css' : '../libs/reveal.js-3.4.1/css/print/paper.css';
+      link.href = window.location.search.match(/print-pdf/gi) ? '../libs/reveal.js-3.4.1/css/print/pdf.css' :
+        '../libs/reveal.js-3.4.1/css/print/paper.css';
       document.getElementsByTagName('head')[0].appendChild(link);
     </script>
   </head>
@@ -96,16 +93,126 @@
             </ul>
           </section>
         </section>
+        <section>
+          <section>
+            <h3>1.3 C语言的发展及其特点</h3>
+          </section>
+          <section>
+            <h4>BCPL语言</h4>
+            <p class="fragment">1967年，英国剑桥大学 Martin Richards</p>
+            <img class="fragment" src="images/Martin_Richards.gif" alt="Martin Richards" width="12%" height="12%">
+            <pre class="fragment">
+              <code class="BCPL" data-trim contenteditable>
+                GET "LIBHDR"
+
+                LET START() = VALOF $(
+                        FOR I = 1 TO 5 DO
+                                WRITEF("%N! = %I4*N", I, FACT(I))
+                        RESULTIS 0
+                $)
+
+                AND FACT(N) = N = 0 -> 1, N * FACT(N - 1)
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h4>B语言</h4>
+            <p class="fragment">1970年，美国AT&T Ken Thompson</p>
+            <img class="fragment" src="images/Ken_Thompson.jpg" alt="Ken Thompson" width="12%" height="12%">
+            <pre class="fragment">
+              <code class="B" data-trim contenteditable>
+                printn(n, b) {
+                  extrn putchar;
+                  auto a;
+
+                  if (a = n / b)        /* assignment, not test for equality */
+                          printn(a, b); /* recursive */
+                  putchar(n % b + '0');
+                }
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h4>C语言</h4>
+            <p class="fragment">1972-1973年，美国AT&T Dennis Ritchie</p>
+            <img class="fragment" src="images/Dennis_Ritchie_2011.jpg" alt="Dennis Ritchie" width="12%" height="12%">
+            <pre class="fragment">
+              <code class="C" data-trim contenteditable>
+                #include &ltstdio.h&gt
+
+                int main(void)
+                {
+                    printf("hello, world\n");
+                }
+                </code>
+            </pre>
+          </section>
+          <section>
+            <p class="fragment">开发C语言的目的：</p>
+            <ul>
+              <li class="fragment">提供多种数据类型并提供静态的检查</li>
+              <li class="fragment">降低对平台的依赖，具有很好的移植性</li>
+            </ul>
+          </section>
+          <section>
+            <h4>C语言的应用和发展</h4>
+            <hr>
+            <ul>
+              <li class="fragment">1969, Ken Thompson 和 Dennis Ritchie 用汇编语言开发UNIX第一版</li>
+              <li class="fragment">1973, Dennis Ritchie 发明C语言</li>
+              <li class="fragment">1973, Ken Thompson 和 Dennis Ritchie 用C语言重写UNIX第五版（90%）</li>
+              <li class="fragment">1978, C语言先后移植到大中小和微型机上</li>
+            </ul>
+          </section>
+          <section>
+            <h4>C 标准</h4>
+            <hr>
+            <ul>
+              <li class="fragment"><span class="fragment highlight-green">1978年，在UNIX第7版的C语言编译程序为基础，Brian W. Kernighan 和 Dennis Ritchie, 《The C Programming Language》,"C圣经（Bible）" , K&R C</span></li>
+              <li class="fragment"><span class="fragment highlight-blue">1989年, Brian W. Kernighan 和 Dennis Ritchie, 《The C Programming Language, 2nd》, ANSI89, ISO1990, C89</span></li>
+              <li class="fragment"><span class="fragment highlight-red">1999年, ISO1999, C99</span></li>
+            </ul>
+          </section>
+          <section>
+            <h4>C 语言的特点</h4>
+            <hr>
+            <ol>
+              <li class="fragment">语言简洁紧凑，使用方便灵活</li>
+              <li class="fragment">运算符丰富</li>
+              <li class="fragment">数据类型丰富</li>
+              <li class="fragment">有结构化的控制语句</li>
+              <li class="fragment">语法限制不严格，设计自由度大</li>
+              <li class="fragment">运行直接访问物理地址，位操作，实现汇编的绝大部分功能</li>
+              <li class="fragment">可移植性好</li>
+              <li class="fragment">生成目标代码质量高，程序执行效率高</li>
+            </ol>
+          </section>
+          <section>
+            <h4>C 语言的用途</h4>
+            <hr>
+            <ol>
+              <li class="fragment">操作系统（几乎所有，windows，Mac OS，Linux等）</li>
+              <li class="fragment">要求性能高的程序，比如游戏，实时控制系统</li>
+              <li class="fragment">嵌入式程序</li>
+            </ol>
+          </section>
+        </section>
+        <section>
+          <h3>1.4 最简单的C语言程序</h3>
+        </section>
       </div>
     </div>
-
     <script src="../libs/reveal.js-3.4.1/lib/js/head.min.js"></script>
     <script src="../libs/reveal.js-3.4.1/js/reveal.js"></script>
-
     <script>
       // More info https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
+        controls: true,
+        progress: true,
         history: true,
+        center: true,
+
+        transition: 'zoom', // none/fade/slide/convex/concave/zoom,
 
         // More info https://github.com/hakimel/reveal.js#dependencies
         dependencies: [{
