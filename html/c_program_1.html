@@ -289,6 +289,105 @@ This is a C program.
               <span class="fragment highlight-green">以%为开头</span>，<span class="fragment highlight-blue">d表示整数</span>，每次出现一个%d，就表示实际输出时，这个%d应该由格式字符串后面的<span class="fragment highlight-green">数或变量或表达式的值来替换</span>，第一个%d由a的值来替换，第二个%d由b的值来替换，第三个%d由表达式(a+b)的计算结果的值来替换，所以当a
               = 123, b=456 的时候， "%d+%d=%d"就被替换为 123 + 456 = 579 输出到屏幕上。</p>
           </section>
+          <section>
+            <p class="fragment"><b>例 1.3 </b> 输入两个数，求其大者输出。 </p>
+            <pre class="fragment">
+              <code class="C" data-trim contenteditable>
+                #include &lt stdio.h &gt
+
+                int main(void)
+                {
+                  float x, y, max;                    //定义变量（及其类型）
+                  float max2(float a, float b);       //给函数声明（declaration)
+                  
+                  printf("please input two number:"); //显示提示信息
+                  scanf("%f,%f", &x, &y);             //从键盘中输入两个数
+
+                  max = max2(x, y);                   //调用函数（call）来计算哪个大，返回结果赋值给max
+                  printf(" max number between [%f,%f] = %f \n", x, y, max);  //输出结果，注意格式化的输出
+                  return 0;                               //返回函数最后结果
+                }
+
+                float max2(float a, float b)
+                {
+                  float z;
+                  if( a > b )
+                    z = a;
+                  else
+                    z = b;
+                  return z;
+                }
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>解析</h3>
+            <hr>
+            <p class="fragment">1. 本例定义和使用一个<span class="fragment highlight-green">函数</span>，注意函数和变量一样，<span class="fragment highlight-red">必须先定义再使用</span>，如果<span class="fragment highlight-blue">在使用之后定义，必须在之前先声明</span>。</p>
+            <p class="fragment">2. 函数的<span class="fragment highlight-green">定义</span>必须包含<span class="fragment highlight-blue">函数头（返回类型 函数名（参数列表）</span>,如 float max2(float a, float b）以及<span class="fragment highlight-blue">函数体（用{ }包含起来的语句集合)</span>，函数的声明则是<span class="fragment highlight-green">只包含函数头</span>，注意
+              <span class="fragment highlight-red">函数声明也是语句，所以行末必须加；</span>
+            </p>
+            <p class="fragment">3. 函数定义<span class="fragment highlight-red">只能定义一次</span>，但是<span class="fragment highlight-green">声明可以无数次</span>。</p>
+          </section>
+          <section>
+            <p class="fragment">4. 函数头的参数列表<span class="fragment highlight-red">必须把每个参数的类型和名称都写上，用"，"来分隔</span>，如：float max2(float a, float b), 如果<span class="fragment highlight-green">没有参数，则标记为void</span>, 如 ： int main(void) </p>
+            <p class="fragment">5. 函数的<span class="fragment highlight-green">返回值类型说明</span>放在函数头最左边，如上面的函数max2其返回值类型是float（浮点实数类型），如果函数<span class="fragment highlight-green">没有返回值，则标记为void </span>，如：void do_something(void)</p>
+            <p class="fragment">6. 函数的返回值由函数中的<span class="fragment highlight-green">return 语句</span>来决定，可以有多个return 语句，如果没有返回值，可以简单用 return; 来结束</p>
+          </section>
+          <section>
+            <p class="fragment" style="font-size: 30px">7. 函数的<span class="fragment highlight-green">名称定义规则</span>和变量名一致，只能字母（大小写不同）、数字、下划线组成，而且数字不能是第一个字符，不能和关键字重名，最好用有意义的英文单词或者拼音组合来起名，多个单词之间用下划线来分开，比如：do_something(), qiu_ti_ji()</p>
+            <p class="fragment" style="font-size: 30px">8. 函数定义完之后就可以被其他语句<span class="fragment highlight-green">调用（call）</span>，函数在实际被调用的时候，直接写函数名，并通过括号输入<span class="fragment highlight-green">实际的参数的值</span>，这个时候参数<span class="fragment highlight-red">不要指定类型</span>。例如：定义函数: </p>
+            <pre class="fragment"><code class="c" data-trim>float max2(float a, float b){...} </code></pre>
+            <p class="fragment" style="font-size: 30px">调用函数：</p>
+            <pre class="fragment"><code class="c" data-trim>max= max2(13, 56);</code></pre>
+            <p class="fragment" style="font-size: 30px">注意在这个例子中，实际调用函数max2时，13这个数会传递到函数max2中，并赋值给参数a, 56这个数会传递到函数max2中，赋值给参数b</p>
+          </section>
+          <section>
+            <p class="fragment" style="font-size: 30px">9. 在本例中，为了能输入和比较实数，我们使用了<span class="fragment highlight-green">浮点类型：float </span>来定义变量，float类型能表示的实数可以有两种形式：<span class="fragment highlight-green">小数形式</span>（如 3.14, 0.314, -.314 ) 和 <span class="fragment highlight-green">科学计数法形式 </span>(如
+              0.314e+1, 31.4e-1 )， 更多float类型的信息见后继课程</p>
+            <p class="fragment" style="font-size: 30px">10. 为了能够从键盘中输入数据给变量，我们使用了标准库函数<span class="fragment highlight-green">scanf</span>（和printf一样，也在stdio.h中声明）</p>
+            <p class="fragment" style="font-size: 30px">11.scanf("%f,%f", &x, &y); 这条语句有两个注意的地方，一个是格式字符串“%f,%f", 这说明<span class="fragment highlight-green">对于float类型的变量，其嵌入字符应该是%f</span>(前面的int类型的变量是%d), 另一个要注意的，是<span class="fragment highlight-blue">&x中的&</span>， &称为<span class="fragment highlight-green">取地址运算符</span>，能告诉scanf函数当从键盘输入数据后，应该放置到
+              <span class="fragment highlight-blue">x变量在内存中的地址</span>上。 </p>
+            <p class="fragment" style="font-size: 30px">12. 在后面的printf("%f",x) 中，同样使用%f嵌入字符来对应float类型的变量x</p>
+          </section>
+          <section>
+            <p class="fragment">13. 在函数max2中，我们用了</p>
+            <pre class="fragment"><code class="c">
+                if (zzz) xxx; else yyy; 
+                </code></pre>
+            <p class="fragment">的语法，这是一种常见的<span class="fragment highlight-blue">条件判断语句</span>，当zzz被计算后，如果其值为<span class="fragment highlight-green">真（true，对于C语言来说，就是任何非0的值，都为真）</span>，则执行xxx语句，否则表示为<span class="fragment highlight-red">假（false，对于C语言，0为假）</span>，则执行yyy语句，更多条件判断的内容见后面的介绍。
+            </p>
+          </section>
+          <section>
+            <pre class="fragment">
+              <code class="C" data-trim>
+                #include &lt stdio.h &gt
+
+                int main(void)
+                {
+                  float x, y, max;                    //定义变量（及其类型）
+                  float max2(float a, float b);       //给函数声明（declaration)
+                  
+                  printf("please input two number:"); //显示提示信息
+                  scanf("%f,%f", &x, &y);             //从键盘中输入两个数
+
+                  max = max2(x, y);                   //调用函数（call）来计算哪个大，返回结果赋值给max
+                  printf(" max number between [%f,%f] = %f \n", x, y, max);  //输出结果，注意格式化的输出
+                  return 0;                               //返回函数最后结果
+                }
+
+                float max2(float a, float b)
+                {
+                  float z;
+                  if( a > b )
+                    z = a;
+                  else
+                    z = b;
+                  return z;
+                }
+              </code>
+            </pre>
+          </section>
         </section>
       </div>
     </div>
