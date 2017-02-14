@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../libs/reveal.js-3.4.1/css/theme/black.css">
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="../libs/reveal.js-3.4.1/lib/css/zenburn.css">
+    <link rel="stylesheet" href="css/style.css">
     <!-- Printing and PDF exports -->
     <script>
       var link = document.createElement('link');
@@ -35,9 +36,9 @@
         <section>
           <h3>1.2 什么是计算机语言</h3>
           <section>
-            <p class="fragment ">计算机能直接识别和接受的二进制代码称为<span class="fragment highlight-red">机器指令（machine instruction）</span></p>
-            <p class="fragment ">机器指令的集合称为<span class="fragment highlight-blue">机器语言（machine language）</span></p>
-            <p class="fragment">机器语言的优缺点：</p>
+            <p>计算机能直接识别和接受的二进制代码称为<span class="fragment highlight-red">机器指令（machine instruction）</span></p>
+            <p>机器指令的集合称为<span class="fragment highlight-blue">机器语言（machine language）</span></p>
+            <p>机器语言的优缺点：</p>
             <ul>
               <li class="fragment"><span class="fragment highlight-green">运行速度快，能充分发挥机器的性能</span></li>
               <li class="fragment"><span class="fragment highlight-red">难学，难写，难记，难检查和修改</span></li>
@@ -209,12 +210,12 @@
             <p class="fragment">This is a C program. </p>
             <pre class="fragment">
               <code class="C" data-trim contenteditable>
-                #include &ltstdio.h&gt          //预编译处理指令，包含stdio.h头文件
+                #include &lt stdio.h &gt          //预编译处理指令，包含stdio.h头文件
 
                 int main(void)                             //主函数定义
                 {                                          //函数开始
                     printf("This is a C program.\n");      //输出（到屏幕）信息
-                    return 0;                              //函数返回值
+                    return 0;                              //函数返回值,注意每行语句结束用；
                 }                                          //函数结束
                 </code>
             </pre>
@@ -222,6 +223,71 @@
             <pre class="fragment">
 This is a C program.
             </pre>
+          </section>
+          <section>
+            <h3>解析：</h3>
+            <hr>
+
+            <p class="fragment">1.C语言的基本组织单位是<span class="fragment highlight-green">函数</span></p>
+            <p class="fragment">2.每个独立C语言程序都有且只有一个<span class="fragment highlight-green">main函数</span>，这是C语言程序的<span class="fragment highlight-green">开始和结束</span></p>
+            <p class="fragment">3.#XXX表示这是<span class="fragment highlight-green">预编译指令</span>，是在C语言编译器<span class="fragment highlight-green">开始之前</span>进行的智能化文本处理，#include&ltstdio.h&gt表示将stdio.h文件的内容包含到本行中</p>
+          </section>
+          <section>
+            <p class="fragment">4.<span class="fragment highlight-blue">int main(void)</span>是<span class="fragment highlight-green">函数头</span>，main是函数的名称，前面的int表示该函数运行结束后应该有一个返回值，其类型是整数（int），void表示该函数（即main函数）被调用时无需传入参数</p>
+            <p class="fragment">5.C语言中可以有很多函数，每个<span class="fragment highlight-green">函数的名称必须独一无二</span>，每个函数都需要<span class="fragment highlight-blue">先定义再使用</span>。函数的定义包括<span class="fragment highlight-blue">函数头</span>和<span class="fragment highlight-green">函数的实现</span>，函数的实现由一对
+              <span class="fragment highlight-green">大括号{}</span>来包括</p>
+          </section>
+          <section>
+            <p class="fragment">6.printf是一个<span class="fragment highlight-green">C标准库函数</span>，所谓标准库，是指每个C语言标准规定必须存在的很多函数的集合，编译器的实现厂商负责提供。printf函数负责将指定的信息显示到屏幕上</p>
+            <p class="fragment">7.printf有很多用法，后面我们会看到更多。printf("xxx")是将<span class="fragment highlight-green">文字串 </span>xxx （文字串又称为<span class="fragment highlight-green">字符串</span>，string，在C语言中用“ ”来包括起来）显示在屏幕上
+            </p>
+            <p class="fragment">8.文字串（字符串）末尾的“\n"表示<span class="fragment highlight-green">本行结束</span>，后面再有文字输出的时候就换到下一行开头进行显示</p>
+          </section>
+          <section>
+            <p class="fragment">9.printf("xxx"); 称为一条<span class="fragment highlight-green">语句</span>，这是C语言的基本语法单位，每条语句末尾必须用；来结束（后面会介绍几种特殊的情况）</p>
+            <p class="fragment">10.return 0；表示函数（main）<span class="fragment highlight-green">结束并以一个值（这里是0）返回到调用者</span>（对于main函数来说，就是操作系统）</p>
+            <p class="fragment">11.注释，两种注释方法：//表示单行注释，从//开始到行尾都是注释，编译器自动忽略不编译，C99；另一种注释是/* ... */ 这样的块注释，K&R C, C89，C99都适合，注意/和*，*和/之间都不能有空格，这样的注释不能嵌套</p>
+          </section>
+          <section>
+            <p class="fragment"><b>例 1.2 </b> 求两个整数之和 </p>
+            <pre class="fragment">
+              <code class="C" data-trim contenteditable>
+                #include &lt stdio.h &gt
+
+                int main(void)
+                {
+                  int a = 123, b, sum;                    //定义变量（及其类型）并给a一个初始值
+                  b = 456;                                //给变量b赋值
+                  sum = a + b;                            //计算a+b， 并把结果赋值给变量sum
+                  printf(" %d + %d = %d \n", a, b, sum);  //输出结果，注意格式化的输出
+                  return 0;                               //返回函数最后结果
+                }
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>解析</h3>
+            <hr>
+            <p class="fragment" style="font-size: 30px">1. C语言中可以定义<span class="fragment highlight-blue">变量</span>，变量有<span class="fragment highlight-green">名称</span>和<span class="fragment highlight-blue">类型</span>，类型决定了变量能够保存的数据类型和大小，常见的类型有<span class="fragment highlight-green">int(整数类型，简称整型,
+              如123， +10086， -34 ， 0 , 012 , 0xf ）</span>、
+              <span class="fragment highlight-red">float（浮点类型，可以保存实数类型，如 1.45， 3.4e-3）</span>、<span class="fragment highlight-blue">char（字符类型，可以保存字符等符号数据, 如'a', 'B', '+', '#', '1'）</span></p>
+            <p class="fragment" style="font-size: 30px">2. 变量的名称不能随便乱取，首先其组成必须由<span class="fragment highlight-green">字母（a-z, A-Z, 大小写是不同的）</span>和<span class="fragment highlight-red">数字（0-9）</span>和<span class="fragment highlight-blue">下划线 _</span> 组成，而且<span class="fragment highlight-red">第一个字符不能是数字</span>，比如No1是合法的变量名，而
+              1st 则是非法的; 变量取名不能和<span class="fragment highlight-green">关键字（key word）</span>重名，上面的int、float、 char、 return 都是关键字</p>
+          </section>
+          <section>
+            <p class="fragment">3. 变量取名是为了方便使用，变量表示内存中的一块空间，可以往那块空间赋值不同的内容，因此变量的取名最好有<span class="fragment highlight-green">意义</span>，如本例的sum 变量就表示求和的意思。最常见的变量取名方法，用英文单词（或拼音）的组合，下划线区分各个单词，比如： user_name, ti_ji</p>
+            <p class="fragment">4. 变量必须<span class="fragment highlight-green">先定义再使用</span>，定义时相同类型的变量可以放在一起定义，如：int a, b, sum; 定义也是语句，所以在行末要加；</p>
+            <p class="fragment">5. 变量定义的时候可以顺便<span class="fragment highlight-green">初始化</span>，如果没有初始化，则其值不确定, 如：int a=123, b;</p>
+          </section>
+          <section>
+            <p class="fragment">6. 变量定义之后就可以使用了，通常变量的常见使用方式是<span class="fragment highlight-green">取其值（直接写出其变量名）</span>和<span class="fragment highlight-blue">赋值（变量名=新的值）</span></p>
+            <p class="fragment">7. sum = a + b 这是一条赋值<span class="fragment highlight-green">表达式</span>，右边是<span class="fragment highlight-green">算数表达式</span>，分别取变量a（指向的内存中）的值和b中的值，相加（加的时候会在内存中新申请一块区域保存运算结果，当赋值给sum以后，这块内存会归还给系统，所以<span class="fragment highlight-red">只计算不赋值则没有意义</span>，浪费计算机的时间），左边是
+              <span class="fragment highlight-green">赋值语句</span>，将计算的结果数据放在变量sum所表示的那块内存中。</p>
+          </section>
+          <section>
+            <p class="fragment">8. printf可以一种<span class="fragment highlight-green">嵌入式</span>的方法来将数值嵌入一段字符串中输出，如printf("%d+%d=%d\n", a, b, a+b); 语句中，前面的“ ”包含的字符串称为<span class="fragment highlight-blue">格式字符串</span>，在格式字符串中出现的%d称为<span class="fragment highlight-red">嵌入字符</span>，
+              <span class="fragment highlight-green">以%为开头</span>，<span class="fragment highlight-blue">d表示整数</span>，每次出现一个%d，就表示实际输出时，这个%d应该由格式字符串后面的<span class="fragment highlight-green">数或变量或表达式的值来替换</span>，第一个%d由a的值来替换，第二个%d由b的值来替换，第三个%d由表达式(a+b)的计算结果的值来替换，所以当a
+              = 123, b=456 的时候， "%d+%d=%d"就被替换为 123 + 456 = 579 输出到屏幕上。</p>
           </section>
         </section>
       </div>
