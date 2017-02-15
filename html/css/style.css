@@ -2,3 +2,7 @@ p {
     text-align: left;
     font-size: 30px;
 }
+
+code {
+    background-color: #4f3f3f
+}
