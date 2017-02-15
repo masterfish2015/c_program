@@ -589,15 +589,96 @@ This is a C program.
                 if (zzz) xxx; else yyy; 
                 </code></pre>
             <p style="font-size: 30px">的语法，这是一种常见的<span class="fragment highlight-blue">条件判断语句</span>，当<code>zzz</code>被计算后，如果其值为<span class="fragment highlight-green">真（<code>true</code>，对于C语言来说，就是任何非<code>0</code>的值，都为真）</span>，则执行<code>xxx</code>语句，若<code>zzz</code>计算的结果为
-              <span
-                class="fragment highlight-red">假（<code>false</code>，对于C语言，<code>0</code>为假）</span>，则执行<code>yyy</code>语句，更多条件判断的内容见后面的介绍。</p>
+              <span class="fragment highlight-red">假（<code>false</code>，对于C语言，<code>0</code>为假）</span>，则执行<code>yyy</code>语句，更多条件判断的内容见后面的介绍。</p>
           </section>
 
         </section>
         <section>
-          <h3>1.4.2 C语言的程序结构</h3>
-          <hr>
+          <section>
+            <h3>1.4.2 C语言的程序结构</h3>
+          </section>
+          <section>
+            <p style="font-size: 30px">(1)、一个程序由一个或多个源程序文件组成（以.c为扩展名），一个源程序文件中可以包含三个部分：</p>
+            <pre>
+              <code class="C" data-trim >
+                #include &lt; stdio.h &gt;
+                float x, y, max;                    //定义变量（及其类型）
+                float max2(float a, float b);       //给函数声明（declaration)
+                int main(void)
+                { 
+                  printf("please input two number:"); //显示提示信息
+                  scanf("%f,%f", &x, &y);             //从键盘中输入两个数
 
+                  max = max2(x, y);                   //调用函数（call）来计算哪个大，返回结果赋值给max
+                  printf(" max number between [%f,%f] = %f \n", x, y, max);  //输出结果，注意格式化的输出
+                  return 0;                               //返回函数最后结果
+                }
+                float max2(float a, float b)
+                {
+                  float z;
+                  if( a > b )
+                    z = a;
+                  else
+                    z = b;
+                  return z;
+                }
+              </code>
+            </pre>
+            <p style="font-size: 30px"><span class="fragment highlight-red">预处理指令</span> <span class="fragment highlight-green">全局声明</span> <span class="fragment highlight-blue">函数定义</span></p>
+          </section>
+          <section>
+            <h3>(2)、函数是C语言的主要组成部分</h3>
+            <ul>
+              <li class="fragment">由一个或多个函数组成（必须且只能有一个<code>main</code>函数）</li>
+              <li class="fragment">多个函数可以分在多个源程序文件中</li>
+              <li class="fragment">编译（compile）是以源程序文件为对象，最后链接（link）成为一个二进制可执行的程序</li>
+              <li class="fragment">模块化的程序设计</li>
+              <li class="fragment">函数可以是自己写的，也可以是标准库中，或者其他人/公司提供的</li>
+            </ul>
+          </section>
+          <section>
+            <h3>(3)、函数包括两个部分：</h3>
+            <ul>
+              <li>函数头（首）</li>
+              <li>函数体
+                <ul>
+                  <li>声明部分</li>
+                  <li>执行部分</li>
+                </ul>
+              </li>
+            </ul>
+            <pre>
+              <code class="C" data-trim >                
+                float max2(float a, float b)  //函数头
+                {               //函数体开始
+                  float z;      //声明部分
+                  if( a > b )   //执行部分
+                    z = a;
+                  else
+                    z = b;
+                  return z;
+                }               //函数体结束
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h3>(4). 函数总是从<code>main</code>函数开始执行</h3>
+          </section>
+          <section>
+            <h3>(5). 对计算机的操作是由函数中的C语句完成的</h3>
+            <ul>
+              <li></li>
+            </ul>
+          </section>
+          <section>
+            <ol>
+              <li>函数总是从main函数开始执行</li>
+              <li></li>
+              <li>每个数据声明和语句的最后必须有一个分号作为结束</li>
+              <li>C语言中输入输出都是由标准库函数来实现的</li>
+              <li>程序中应该包含注释</li>
+            </ol>
+          </section>
         </section>
       </div>
     </div>
