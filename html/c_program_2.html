@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>C Program Language-chapter-2</title>
+    <link rel="stylesheet" href="../libs/reveal.js-3.4.1/css/reveal.css">
+    <link rel="stylesheet" href="../libs/reveal.js-3.4.1/css/theme/black.css">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../libs/reveal.js-3.4.1/lib/css/zenburn.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match(/print-pdf/gi) ? '../libs/reveal.js-3.4.1/css/print/pdf.css' :
+        '../libs/reveal.js-3.4.1/css/print/paper.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h2 class="fragment grow">第二章 算法--程序的灵魂</h2>
+        </section>
+        <section>
+          <section>
+            <h3>2.1 算法的定义</h3>
+          </section>
+          <section>
+            <pre>
+            <code>算法+数据结构=程序</code>
+            </pre>
+            <p class="fragment">
+              <img src="images/Nikiklaus_Wirth.jpg" alt="Nikiklaus Wirth">
+              <q>Nikiklaus Wirth</q>
+            </p>
+            <p class="fragment">
+              数据结构： 数据的类型和数据的组织形式
+            </p>
+            <p class="fragment">
+              算法：为解决一个问题采取的方法和步骤。
+          </section>
+          <section>
+            <h4>计算机算法的分类</h4>
+            <ul>
+              <li class="fragment">数值运算算法</li>
+              <li class="fragment">非数值运算算法</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>2.2 如何表示一个算法</h3>
+          </section>
+          <section>
+            <h4>2.2.1 自然语言表示</h4>
+            <hr>
+            <ul>
+              <li class="fragment">不精确</li>
+              <li class="fragment">不方便</li>
+            </ul>
+          </section>
+          <section>
+            <h4>2.2.2 流程图表示</h4>
+          </section>
+          <section>
+            <img src="images/fig2_3.png" alt="流程图常用符号">
+          </section>
+          <section>
+            <p>例2.1 求：<code>1*2*3*4*5</code></p>
+            <p>
+              <img class="fragment" src="images/fig2_6.png" alt="例2.1解法1" width="20%" height="20%">
+              <img class="fragment" src="images/fig2_5_1.png" alt="条件跳转" width="20%" height="20%">
+              <img class="fragment" src="images/fig2_5_2.png" alt="循环" width="20%" height="20%">
+              <img class="fragment" src="images/fig2_7.png" alt="例2.1解法2" width="30%" height="30%">
+            </p>
+          </section>
+          <section>
+            <h5>控制结构三种类型：顺序，条件跳转，循环</h5>
+          </section>
+          <section>
+            <p>例2.2 判定一个年份是否是闰年</p>
+            <hr>
+            <p class="fragment ">[解题思路]：设要判断的年份存在变量year中，其是闰年的判断依据是</p>
+            <ol>
+              <li class="fragment">能被4整除，但不能被100整除的是闰年，如2008， 1996</li>
+              <li class="fragment">或者，能被400整除的是闰年， 如2000</li>
+              <li class="fragment">其他情况下都是非闰年， 如2100</li>
+              <li class="fragment">判断能被400整除必然能被4整除，所以先判断400，再判断4</li>
+            </ol>
+          </section>
+          <section>
+            <img class="fragment" src="images/fig2_1.png" alt="例2.2解法">
+          </section>
+          <section>
+            <h5>流程图的特点</h5>
+            <hr>
+            <ol>
+              <li class="fragment highlight-green">直观，形象</li>
+              <li class="fragment highlight-red">算法复杂时，比较费时</li>
+              <li class="fragment highlight-red">容易写出“意大利面”式杂乱无章的代码</li>
+            </ol>
+          </section>
+          <section>
+            <h4>2.2.3 N-S流程图</h4>
+            <div>
+              <img class="fragment" src="images/fig2_2.png" alt="N-S流程图">
+              <ul>
+                <li class="fragment">直观、形象</li>
+                <li class="fragment">紧凑、易画</li>
+                <li class="fragment">结构化比传统流程图好</li>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <p>例2.3 求<code>n!</code>(阶乘）</p>
+            <hr>
+            <p class="fragment" style="font-size: 30px">[解题思路]：设<code>n</code>是大于<code>1</code>的整数，阶乘的值保存在变量<code>factorial</code>中，可以用公式： <code>factorial=1*2*3*...*(n-1)*n</code>，这样我们可以用一个变量<code>i</code>来循环取<code>1~n</code>的值，分别把其值和<code>factorial</code>相乘，即可得到所需要的值。</p>
+            <img class="fragment" src="images/fig2_3_1.png" alt="例题2.3的解法">
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>2.3 算法的特性</h3>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>2.4 简单算法举例</h3>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>2.5 结构化程序设计方法</h3>
+          </section>
+        </section>
+      </div>
+    </div>
+    <script src="../libs/raphael/raphael.js"></script>
+    <script src="../libs/reveal.js-3.4.1/lib/js/head.min.js"></script>
+    <script src="../libs/reveal.js-3.4.1/js/reveal.js"></script>
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [{
+          src: '../libs/reveal.js-3.4.1/plugin/markdown/marked.js'
+        }, {
+          src: '../libs/reveal.js-3.4.1/plugin/markdown/markdown.js'
+        }, {
+          src: '../libs/reveal.js-3.4.1/plugin/notes/notes.js',
+          async: true
+        }, {
+          src: '../libs/reveal.js-3.4.1/plugin/highlight/highlight.js',
+          async: true,
+          callback: function() {
+            hljs.initHighlightingOnLoad();
+          }
+        }]
+      });
+    </script>
+  </body>
+
+</html>
