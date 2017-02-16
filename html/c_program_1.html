@@ -598,7 +598,7 @@ This is a C program.
             <h3>1.4.2 C语言的程序结构</h3>
           </section>
           <section>
-            <p style="font-size: 30px">(1)、一个程序由一个或多个源程序文件组成（以.c为扩展名），一个源程序文件中可以包含三个部分：</p>
+            <h4 style="font-size: 30px">(1)、一个程序由一个或多个源程序文件组成（以.c为扩展名），一个源程序文件中可以包含三个部分：</h4>
             <pre>
               <code class="C" data-trim >
                 #include &lt; stdio.h &gt;
@@ -627,7 +627,7 @@ This is a C program.
             <p style="font-size: 30px"><span class="fragment highlight-red">预处理指令</span> <span class="fragment highlight-green">全局声明</span> <span class="fragment highlight-blue">函数定义</span></p>
           </section>
           <section>
-            <h3>(2)、函数是C语言的主要组成部分</h3>
+            <h4>(2)、函数是C语言的主要组成部分</h4>
             <ul>
               <li class="fragment">由一个或多个函数组成（必须且只能有一个<code>main</code>函数）</li>
               <li class="fragment">多个函数可以分在多个源程序文件中</li>
@@ -637,7 +637,7 @@ This is a C program.
             </ul>
           </section>
           <section>
-            <h3>(3)、函数包括两个部分：</h3>
+            <h4>(3)、函数包括两个部分：</h4>
             <ul>
               <li>函数头（首）</li>
               <li>函数体
@@ -662,22 +662,95 @@ This is a C program.
             </pre>
           </section>
           <section>
-            <h3>(4). 函数总是从<code>main</code>函数开始执行</h3>
+            <h4>(4). 函数总是从<code>main</code>函数开始执行</h4>
           </section>
           <section>
-            <h3>(5). 对计算机的操作是由函数中的C语句完成的</h3>
+            <h4>(5). 对计算机的操作是由函数中的C语句完成的</h4>
             <ul>
-              <li></li>
+              <li class="fragment roll-in">可以一行写多条C语句，用<code>;</code>来区分</li>
+              <li class="fragment roll-in">一般建议一行只写一条，方便阅读和调试</li>
             </ul>
           </section>
           <section>
-            <ol>
-              <li>函数总是从main函数开始执行</li>
-              <li></li>
-              <li>每个数据声明和语句的最后必须有一个分号作为结束</li>
-              <li>C语言中输入输出都是由标准库函数来实现的</li>
-              <li>程序中应该包含注释</li>
-            </ol>
+            <h4>（6）C语言中输入输出都是由标准库函数来实现的</h4>
+          </section>
+          <section>
+            <h4>（7）程序中应该包含注释</h4>
+          </section>
+        </section>
+        <section>
+          <h2>1.5 运行C程序的步骤和方法</h2>
+          <hr>
+          <ol>
+            <li class="fragment">上机输入和编辑源程序</li>
+            <li class="fragment">编译（compile）
+              <ul>
+                <li class="fragment">预处理</li>
+                <li class="fragment">检查语法错误</li>
+                <li class="fragment">编译成目标文件（object，机器语言的二进制文件）</li>
+              </ul>
+            </li>
+            <li class="fragment">链接（link）</li>
+            <li class="fragment">运行，检查是否有逻辑或算法错误</li>
+          </ol>
+        </section>
+        <section>
+          <h2>1.6 程序设计的任务</h2>
+          <hr>
+          <ol>
+            <li class="fragment">问题分析，建立模型，确定输入和输出</li>
+            <li class="fragment">设计算法</li>
+            <li class="fragment">编写程序</li>
+            <li class="fragment">对源程序进行编辑、编译和链接</li>
+            <li class="fragment">运行程序，分析结果</li>
+            <li class="fragment">编写程序文档</li>
+          </ol>
+        </section>
+        <section>
+          <section>
+            <h2>练习</h2>
+          </section>
+          <section>
+            <h3>5. 编写程序，输出下面的内容：</h3>
+            <pre>
+            **********************************
+            Very good!
+            **********************************
+            </pre>
+            <p class="fragment">参考答案</p>
+            <pre class="fragment">
+            <code class="c" data-trim>
+              #include&lt;stdio.h&gt;
+              int main(void)
+              {
+                printf("**********************************\n");
+                printf("Very good!\n");
+                printf("**********************************\n");
+                return 0;
+              }
+            </code>
+            </pre>
+          </section>
+          <section>
+            <p style="font-size: 30px">6. 编写一个C程序，输入<code>a,b,c</code>三个浮点数，输出最大值。</p>
+            <p class="fragment" style="font-size: 30px">[解题思路]：设计一个求两个最大浮点数的最大值的函数 <code>max_float_2(a,b)</code>, 则求三个数最大值的算法就是<code> max_float_2(a, max_float_2(b,c))</code></p>
+            <pre class="fragment">
+            <code class="C" data-trim >
+              #include&lt;stdio.h&gt;
+              int main(void)
+              { 
+                float max_float_2(float x, float y);
+                float a, b, c, result;
+                printf("Input 3 float number:");
+                scanf("%f,%f,%f", &a, &b, &c);
+                result = max_float_2(a, max_float_2(b,c));
+                printf("The max number is %f\n", result);
+                return 0;
+              }
+              float max_float_2(float x, float y)
+              { if( x>y ) return x; else return y; }
+            </code>
+            </pre>
           </section>
         </section>
       </div>
